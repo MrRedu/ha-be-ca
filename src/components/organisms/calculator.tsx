@@ -15,7 +15,7 @@ export const Calculator = () =>
   // props: CalculatorProps
   {
     return (
-      <Card className="max-w-lg">
+      <Card className="">
         {/* <CardHeader>
           <CardTitle>Card Title</CardTitle>
           <CardDescription>Card Description</CardDescription>

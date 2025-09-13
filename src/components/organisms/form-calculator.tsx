@@ -193,7 +193,7 @@ export const FormCalculator = () =>
           />
 
           <Button type="submit" className="col-span-2">
-            Submit
+            Calcular
           </Button>
         </form>
       </Form>
