@@ -15,7 +15,7 @@ export const Calculator = () =>
   // props: CalculatorProps
   {
     return (
-      <Card className="">
+      <Card className="p-12">
         {/* <CardHeader>
           <CardTitle>Card Title</CardTitle>
           <CardDescription>Card Description</CardDescription>

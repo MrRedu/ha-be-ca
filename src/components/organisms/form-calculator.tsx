@@ -36,7 +36,14 @@ export const FormCalculator = () =>
   {
     const form = useForm<FormCalculatorValues>({
       resolver: zodResolver(formCalculatorSchema),
-      defaultValues: {},
+      defaultValues: {
+        gender: '',
+        age: '',
+        weight: '',
+        height: '',
+        activityLevel: '',
+        objective: '',
+      },
     });
 
     const onSubmit = (values: FormCalculatorValues) => {
@@ -50,7 +57,7 @@ export const FormCalculator = () =>
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="space-y-6 grid grid-cols-2 gap-x-4"
+          className="space-y-6 grid items-start grid-cols-2 gap-x-4"
         >
           <FormField
             control={form.control}
@@ -64,7 +71,7 @@ export const FormCalculator = () =>
                 >
                   <FormControl>
                     <SelectTrigger className="w-full">
-                      <SelectValue placeholder="Selecciona tu sexo" />
+                      <SelectValue placeholder="Selecciona tu género" />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
@@ -192,7 +199,7 @@ export const FormCalculator = () =>
             )}
           />
 
-          <Button type="submit" className="col-span-2">
+          <Button type="submit" size="xlg" className="col-span-2">
             Calcular
           </Button>
         </form>
