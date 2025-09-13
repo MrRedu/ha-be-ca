@@ -5,7 +5,7 @@ export const Footer = () =>
   {
     return (
       <>
-        <footer>
+        <footer className="border-t border-t-slate-200  pt-4">
           <p>Footer</p>
         </footer>
       </>
