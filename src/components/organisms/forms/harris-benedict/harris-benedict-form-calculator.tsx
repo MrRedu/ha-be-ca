@@ -22,6 +22,7 @@ import {
 } from '@/lib/constants';
 
 import { type HarrisBenedictFormCalculatorProps } from './harris-benedict-form-calculator.model';
+import { Badge } from '@/components/ui/badge';
 
 export const HarrisBenedictFormCalculator = ({
   onSubmit,
@@ -85,7 +86,10 @@ export const HarrisBenedictFormCalculator = ({
             name="weight"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Peso</FormLabel>
+                <FormLabel>
+                  Peso
+                  <Badge>kg</Badge>
+                </FormLabel>
                 <FormControl>
                   <Input
                     placeholder="Introduce el peso en kg"
@@ -103,7 +107,10 @@ export const HarrisBenedictFormCalculator = ({
             name="height"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Altura</FormLabel>
+                <FormLabel>
+                  Altura
+                  <Badge>cm</Badge>
+                </FormLabel>
                 <FormControl>
                   <Input
                     placeholder="Introduce la altura en cm"

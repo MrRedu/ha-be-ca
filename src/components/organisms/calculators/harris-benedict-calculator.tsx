@@ -18,8 +18,8 @@ export const HarrisBenedictCalculator = () => {
 
   return (
     <div className="flex flex-col gap-8">
-      <Card className="p-12">
-        <CardContent>
+      <Card className="p-6 py-8 md:p-8 md:py-12 lg:p-12 lg:py-16">
+        <CardContent className="p-0">
           <HarrisBenedictFormCalculator
             onSubmit={onSubmit}
             form={harrisBenedictCalculatorForm}
