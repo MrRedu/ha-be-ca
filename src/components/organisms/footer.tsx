@@ -1,13 +1,15 @@
 // interface footerProps {}
 
-export const Footer = () =>
-  // props: FooterProps
-  {
-    return (
-      <>
-        <footer className="border-t border-t-slate-200  pt-4">
-          <p>Footer</p>
-        </footer>
-      </>
-    );
-  };
+import { Typography } from '../ui/typography';
+
+export const Footer = () => {
+  return (
+    <>
+      <footer className="border-t border-t-slate-200 py-4">
+        <Typography variant="muted" className="text-center">
+          Copyright 2025 © Todos los derechos reservados.
+        </Typography>
+      </footer>
+    </>
+  );
+};

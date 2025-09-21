@@ -1,30 +1,34 @@
-import { HarrisBenedictCalculator } from '@/components/organisms/calculators/harris-benedict-calculator';
+import { Skeleton } from '@/components/ui/skeleton';
+import { Typography } from '@/components/ui/typography';
+import Link from 'next/link';
+
+const CALCULATORS = [
+  {
+    name: 'Calculadora de Calorías (Harris-Benedict)',
+    href: '/calculators/harris-benedict',
+  },
+];
 
 export default function HomePage() {
   return (
-    <article className="">
-      <header className="bg-[#ffe636] pt-32 pb-16">
-        <h1 className="font-bold text-5xl text-center ">
-          Calculadora de Calorías (Harris-Benedict)
-        </h1>
-      </header>
-      <div className=" max-w-4xl m-auto lg:p-16 p-8 space-y-16">
-        <section className="text-xl text-center space-y-4">
-          <p>
-            Esta <strong>calculadora automática</strong> te indica cuáles son
-            las
-            <strong>calorías diarias</strong> que gastas (en total) según la
-            fórmula de <strong>Harris-Benedict</strong>, la más popular y usada
-            en la actualidad.
-          </p>
-          <p>
-            Seguido de este resultado, se incluye una sección que te permite
-            calcular <strong>cuántas calorías deberías comer</strong> aprox.
-            para ganar peso (ganar músculo) o bajar de peso (definir).
-          </p>
-        </section>
-        <HarrisBenedictCalculator />
-      </div>
-    </article>
+    <>
+      <section className="container mx-auto px-4 md:px-6 lg:px-8 my-10">
+        <div className="space-y-4">
+          <Typography variant="h2" className="border-none">
+            Calculadoras
+          </Typography>
+          <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {CALCULATORS.map((calculator) => (
+              <li key={calculator.href}>
+                <Link href={calculator.href}>
+                  <Skeleton className="h-50" />
+                  <Typography variant="large">{calculator.name}</Typography>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    </>
   );
 }
