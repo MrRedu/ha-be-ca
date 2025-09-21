@@ -1,7 +1,3 @@
-'use client';
-
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
 import { Button } from '@/components/ui/button';
 import {
   Form,
@@ -24,36 +20,15 @@ import {
   GENDERS_OPTIONS,
   OBJECTIVE_OPTIONS,
 } from '@/lib/constants';
-import {
-  formCalculatorSchema,
-  type FormCalculatorValues,
-} from '@/schemas/form-calculator.schema';
 
-// interface FormCalculatorProps {}
+import { type HarrisBenedictFormCalculatorProps } from './harris-benedict-form-calculator.model';
 
-export const FormCalculator = () =>
-  // props: FormCalculatorProps
-  {
-    const form = useForm<FormCalculatorValues>({
-      resolver: zodResolver(formCalculatorSchema),
-      defaultValues: {
-        gender: '',
-        age: '',
-        weight: '',
-        height: '',
-        activityLevel: '',
-        objective: '',
-      },
-    });
-
-    const onSubmit = (values: FormCalculatorValues) => {
-      // Do something with the form values.
-      // ✅ This will be type-safe and validated.
-      console.log(values);
-      alert(JSON.stringify(values, undefined, 2));
-    };
-
-    return (
+export const HarrisBenedictFormCalculator = ({
+  onSubmit,
+  form,
+}: HarrisBenedictFormCalculatorProps) => {
+  return (
+    <>
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
@@ -204,5 +179,6 @@ export const FormCalculator = () =>
           </Button>
         </form>
       </Form>
-    );
-  };
+    </>
+  );
+};

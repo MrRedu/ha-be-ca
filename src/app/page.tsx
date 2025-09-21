@@ -1,4 +1,4 @@
-import { Calculator } from '@/components/organisms/calculator';
+import { HarrisBenedictCalculator } from '@/components/organisms/calculators/harris-benedict-calculator';
 
 export default function HomePage() {
   return (
@@ -23,7 +23,7 @@ export default function HomePage() {
             para ganar peso (ganar músculo) o bajar de peso (definir).
           </p>
         </section>
-        <Calculator />
+        <HarrisBenedictCalculator />
       </div>
     </article>
   );

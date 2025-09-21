@@ -33,3 +33,16 @@ export const OBJECTIVE_OPTIONS = [
   { value: 'maintain-weight', label: 'Mantener peso' },
   { value: 'gain-weight', label: 'Ganar peso' },
 ];
+
+export const TITLE_OPTIONS = {
+  'calorie-deficit': 'Las calorías para estar en déficit calórico',
+  maintenance: 'Las calorías para mantenimiento',
+  'caloric-surplus': 'Las calorías para estar en superávit calórico',
+};
+
+export const LEVELS_OPTIONS = {
+  light: 'Ligero',
+  moderate: 'Moderado',
+  aggressive: 'Agresivo',
+  maintenance: 'Mantenimiento',
+};
