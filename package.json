@@ -1,6 +1,6 @@
 {
-  "name": "ha-be-ca",
-  "description": "Harris-Benedict Calculator (Basal Metabolic Rate)",
+  "name": "fitool",
+  "description": "",
   "version": "0.1.0",
   "private": true,
   "scripts": {
