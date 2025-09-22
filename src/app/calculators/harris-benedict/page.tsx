@@ -28,7 +28,9 @@ export default function CalculatorHarrisBenedictPage() {
           </section>
           <HarrisBenedictCalculator />
           <section className="space-y-4">
-            <Typography variant="h2">¿Cómo funciona?</Typography>
+            <Typography variant="h2">
+              Uso de la calculadora de calorías Harris Benedict
+            </Typography>
             <Typography>
               En el ámbito de la{' '}
               <strong>salud, la nutrición y el ejercicio</strong>, es
@@ -49,6 +51,74 @@ export default function CalculatorHarrisBenedictPage() {
               y sus limitaciones, y también discutiremos alternativas y enfoques
               adicionales para deportistas y personas que buscan controlar su
               peso.
+            </Typography>
+            <Typography variant="h2">
+              Fórmula de Harris Benedict explicada
+            </Typography>
+            <Typography>
+              La fórmula de <strong>Harris – Benedict</strong> representa el{' '}
+              <strong>Ritmo Metabólico Basal (RMB)</strong>, también denominado
+              <em>Tasa Metabólica Basal (TMB)</em>, que es la cantidad de
+              energía necesaria para mantener las funciones vitales del
+              organismo en reposo.
+            </Typography>
+            <Typography>
+              La <strong>fórmula original</strong>, creada en 1918, tiene en
+              cuenta el sexo, la edad, el peso y la estatura para calcular el
+              metabolismo basal y, posteriormente, estimar el gasto calórico
+              total.
+            </Typography>
+            <ul className="my-6 ml-6 list-disc [&>li]:mt-2">
+              <li>
+                <Typography>
+                  Para <strong>hombres</strong>, la fórmula original de
+                  Harris-Benedict es la siguiente: <br />
+                  RMB = 66 + (13.75 x peso en kg) + (5 x altura en cm) – (6.75 x
+                  edad en años)
+                </Typography>
+              </li>
+              <li>
+                <Typography>
+                  Para <strong>mujeres</strong>, la fórmula es ligeramente
+                  diferente: <br />
+                  RMB = 655 + (9.56 x peso en kg) + (1.85 x altura en cm) -
+                  (4.68 x edad en años)
+                </Typography>
+              </li>
+            </ul>
+            <Typography>
+              En 1990, Mifflin y St. Jeor revisaron la fórmula original de
+              Harris – Benedict <strong>para mejorar la precisión</strong> y
+              tener en cuenta las diferencias en el sexo y en la{' '}
+              <strong>masa libre de grasa</strong>.
+            </Typography>
+            <Typography>
+              A pesar de que en las fórmulas de Mifflin y St. Jeor no aparece de
+              manera explícita el porcentaje de grasa corporal, su investigación
+              comparó algunos métodos que sí lo tenían en cuenta. Las ecuaciones
+              finales son regresiones lineales utilizando las mismas variables
+              (sexo, edad y altura) que Harris-Benedict, simplemente, por
+              simplicidad:
+            </Typography>
+            <ul className="my-6 ml-6 list-disc [&>li]:mt-2">
+              <li>
+                <Typography>
+                  <strong>Para hombres</strong>: RMB = (10 x peso en kg) + (6.25
+                  x altura en cm) – (5 x edad en años) + 5
+                </Typography>
+              </li>
+              <li>
+                <Typography>
+                  <strong>Para mujeres</strong>: RMB = (10 x peso en kg) + (6.25
+                  x altura en cm) – (5 x edad en años) – 161
+                </Typography>
+              </li>
+            </ul>
+            <Typography>
+              Estas fórmulas son, en la actualidad, más utilizadas que las
+              originales, aunque eso no significa que las de 1918 sean malas
+              opciones. Es importante tener en cuenta que todas las fórmulas son
+              aproximaciones generales y puede haber variaciones individuales.
             </Typography>
           </section>
         </div>
