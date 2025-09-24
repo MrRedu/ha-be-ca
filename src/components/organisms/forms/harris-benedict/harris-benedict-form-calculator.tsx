@@ -171,7 +171,7 @@ export const HarrisBenedictFormCalculator = ({
           )}
         />
 
-        <Button type="submit" size="xlg" className="col-span-2">
+        <Button type="submit" className="col-span-2">
           Calcular
         </Button>
       </form>

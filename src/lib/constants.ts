@@ -46,3 +46,14 @@ export const LEVELS_OPTIONS = {
   aggressive: 'Agresivo',
   maintenance: 'Mantenimiento',
 };
+
+export const EXERCISE_DURATIONS_OPTIONS = [
+  { label: 'Repeticiones', value: 'reps' },
+  { label: 'Segundos', value: 'seconds' },
+  { label: 'Minutos', value: 'minutes' },
+];
+
+export const UNIT_WEIGHT_OPTIONS = [
+  { label: 'kg', value: 'kg' },
+  { label: 'lb', value: 'lb' },
+];

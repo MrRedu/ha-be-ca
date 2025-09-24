@@ -1,5 +1,5 @@
 'use client';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import {
   Table,
   TableBody,
@@ -18,8 +18,13 @@ export const HarrisBenedictCalculator = () => {
 
   return (
     <div className="flex flex-col gap-8">
-      <Card className="p-6 py-8 md:p-8 md:py-12 lg:p-12 lg:py-16">
-        <CardContent className="p-0">
+      <Card className="">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            Calculadora Harris-Benedict
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="">
           <HarrisBenedictFormCalculator
             onSubmit={onSubmit}
             form={harrisBenedictCalculatorForm}

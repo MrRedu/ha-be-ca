@@ -1,4 +1,5 @@
-import { type FormCalculatorValues } from '@/schemas/form-calculator.schema';
+import { type FormCalculatorValues } from '@/schemas/harris-benedict-form-calculator.schema';
+import { Exercise } from '@/schemas/routine-creator.schema';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -94,4 +95,36 @@ export const calculateCaloriesByObjective = (
   }
 
   return results;
+};
+
+export const exportToWhatsApp = (exercises: Exercise[]): void => {
+  if (exercises.length === 0) return;
+
+  let message = 'Rutina del día\n\n';
+
+  exercises.forEach((exercise) => {
+    const durationText =
+      exercise.durationType === 'reps'
+        ? `${exercise.duration}`
+        : `${exercise.duration}${exercise.durationType}`;
+
+    const setsText = exercise.sets
+      ? `${exercise.sets}x${durationText}`
+      : `${durationText}`;
+    const weightText = exercise.weight
+      ? `[${exercise.weight}${exercise.weightUnit}]`
+      : '';
+
+    message += `- ${exercise.name} | ${setsText} ${weightText}\n`;
+
+    if (exercise.note && exercise.note.trim() !== '') {
+      message += `     _${exercise.note}_\n`;
+    }
+  });
+
+  // message += '\n🔥 ¡A entrenar duro! 🔥';
+
+  const encodedMessage = encodeURIComponent(message);
+  const whatsAppUrl = `https://wa.me/?text=${encodedMessage}`;
+  window.open(whatsAppUrl, '_blank');
 };
