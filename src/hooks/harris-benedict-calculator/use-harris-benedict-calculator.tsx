@@ -3,7 +3,7 @@ import { calculateCaloriesByObjective } from '@/lib/utils';
 import {
   formCalculatorSchema,
   type FormCalculatorValues,
-} from '@/schemas/form-calculator.schema';
+} from '@/schemas/harris-benedict-form-calculator.schema';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
