@@ -74,7 +74,7 @@ export const RoutineCreatorForm = () => {
                   control={form.control}
                   name="durationType"
                   render={({ field }) => (
-                    <FormItem className="min-w-[150px]">
+                    <FormItem className="grid-cols-1">
                       <FormLabel>Tipo</FormLabel>
                       <Select
                         onValueChange={field.onChange}
@@ -135,7 +135,7 @@ export const RoutineCreatorForm = () => {
                   control={form.control}
                   name="weightUnit"
                   render={({ field }) => (
-                    <FormItem className="min-w-[150px]">
+                    <FormItem className="grid-cols-1">
                       <FormLabel>Unidad</FormLabel>
                       <Select
                         onValueChange={field.onChange}

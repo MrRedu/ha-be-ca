@@ -38,7 +38,7 @@ export const HarrisBenedictFormCalculator = ({
           control={form.control}
           name="gender"
           render={({ field }) => (
-            <FormItem>
+            <FormItem className="grid-cols-1">
               <FormLabel>Género</FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
@@ -123,7 +123,7 @@ export const HarrisBenedictFormCalculator = ({
           control={form.control}
           name="activityLevel"
           render={({ field }) => (
-            <FormItem className="col-span-2">
+            <FormItem className="col-span-2 grid-cols-1">
               <FormLabel>
                 ¿Cuál es tu nivel de actividad física diaria?
               </FormLabel>
