@@ -1,9 +1,16 @@
 // interface RoutineCreatorPageProps {}
 
+import { type Metadata } from 'next';
 import { ExerciseList } from '@/components/organisms/exercise-list';
 import { RoutineCreatorForm } from '@/components/organisms/forms/routine-creator/routine-creator-form';
 import { Typography } from '@/components/ui/typography';
 import { Dumbbell } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'FiTool - Creador de rutinas',
+  description:
+    'Herramienta para crear rutinas de entrenamiento personalizadas de manera sencilla.',
+};
 
 export default function RoutineCreatorPage() {
   return (
