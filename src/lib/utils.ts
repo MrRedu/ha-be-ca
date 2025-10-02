@@ -113,14 +113,14 @@ export function formatExercise(
   // <weight><unit>
   // 50kg
   const weightText =
-    exercise.weight === 0 ? '' : `${exercise.weight}${exercise.weightUnit}`;
+    exercise.weight === 0 ? '' : `[${exercise.weight}${exercise.weightUnit}]`;
 
   const prefix =
     idx !== undefined
       ? `   ${exerciseCount}.${idx + 1} `
       : `${exerciseCount}. `;
 
-  let line = `${prefix}${exercise.name} | ${setsText} [${weightText}]\n`;
+  let line = `${prefix}${exercise.name} | ${setsText} ${weightText}\n`;
   if (exercise.note && exercise.note.trim() !== '') {
     line += `    _${exercise.note}_\n`;
   }
