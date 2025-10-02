@@ -1,7 +1,9 @@
 import { type FormCalculatorValues } from '@/schemas/harris-benedict-form-calculator.schema';
-import { Exercise } from '@/schemas/routine-creator.schema';
+import { type Exercise } from '@/schemas/routine-creator.schema';
+import { type RoutineItem } from '@/stores/exercises.store';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
+import { DURATION_TYPES_MAPPING } from './constants';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -97,34 +99,71 @@ export const calculateCaloriesByObjective = (
   return results;
 };
 
-export const exportToWhatsApp = (exercises: Exercise[]): void => {
-  if (exercises.length === 0) return;
+export function formatExercise(
+  exercise: Exercise,
+  exerciseCount: number,
+  idx?: number
+): string {
+  // <sets>x<duration><durationType>
+  // 1x8 reps
+  const setsText = `${exercise.sets}x${exercise.duration}${
+    DURATION_TYPES_MAPPING[exercise.durationType]
+  }`;
+
+  // <weight><unit>
+  // 50kg
+  const weightText =
+    exercise.weight === 0 ? '' : `${exercise.weight}${exercise.weightUnit}`;
+
+  const prefix =
+    idx !== undefined
+      ? `   ${exerciseCount}.${idx + 1} `
+      : `${exerciseCount}. `;
+
+  let line = `${prefix}${exercise.name} | ${setsText} [${weightText}]\n`;
+  if (exercise.note && exercise.note.trim() !== '') {
+    line += `    _${exercise.note}_\n`;
+  }
+
+  return line;
+}
+
+export const exportToWhatsApp = (routineItems: RoutineItem[]) => {
+  if (routineItems.length === 0) return;
 
   let message = 'Rutina del día\n\n';
+  let exerciseCount = 1;
+  let hasGroup = false;
 
-  exercises.forEach((exercise) => {
-    const durationText =
-      exercise.durationType === 'reps'
-        ? `${exercise.duration}`
-        : `${exercise.duration}${exercise.durationType}`;
+  routineItems.forEach((item) => {
+    if ('exercises' in item) {
+      hasGroup = true;
+      const groupType =
+        item.exercises.length === 2
+          ? 'BISERIE'
+          : item.exercises.length === 3
+          ? 'TRISERIE'
+          : `SUPERSET`;
 
-    const setsText = exercise.sets
-      ? `${exercise.sets}x${durationText}`
-      : `${durationText}`;
-    const weightText = exercise.weight
-      ? `[${exercise.weight}${exercise.weightUnit}]`
-      : '';
+      message += `*${groupType}*\n`;
 
-    message += `- ${exercise.name} | ${setsText} ${weightText}\n`;
-
-    if (exercise.note && exercise.note.trim() !== '') {
-      message += `     _${exercise.note}_\n`;
+      item.exercises.forEach((exercise, index) => {
+        message += formatExercise(exercise, exerciseCount, index);
+      });
+      exerciseCount++;
+      message += '\n';
+    } else {
+      message += formatExercise(item, exerciseCount);
+      exerciseCount++;
+      message += '\n';
     }
   });
 
-  // message += '\n🔥 ¡A entrenar duro! 🔥';
+  if (hasGroup) {
+    message += '_Sin descanso entre los grupos de ejercicios_\n';
+  }
 
   const encodedMessage = encodeURIComponent(message);
-  const whatsAppUrl = `https://wa.me/?text=${encodedMessage}`;
-  window.open(whatsAppUrl, '_blank');
+  const whatsappUrl = `https://wa.me/?text=${encodedMessage}`;
+  window.open(whatsappUrl, '_blank');
 };
