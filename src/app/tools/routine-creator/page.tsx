@@ -32,9 +32,7 @@ export default function RoutineCreatorPage() {
             </Typography>
           </section>
           <RoutineCreatorForm />
-          <div>
-            <ExerciseList />
-          </div>
+          <ExerciseList />
         </div>
       </article>
     </>

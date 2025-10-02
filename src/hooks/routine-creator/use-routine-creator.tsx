@@ -35,7 +35,6 @@ export function useRoutineCreator() {
       note: data.note || '',
     };
 
-    // onAddExercise(newExercise)
     addExercise(newExercise);
     form.reset();
   };

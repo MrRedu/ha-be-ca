@@ -57,3 +57,10 @@ export const UNIT_WEIGHT_OPTIONS = [
   { label: 'kg', value: 'kg' },
   { label: 'lb', value: 'lb' },
 ];
+
+
+export const DURATION_TYPES_MAPPING = {
+  reps: 'reps',
+  seconds: 's',
+  minutes: 'min',
+} as const;
